@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Dove posso volare?</title>
+</head>
+<body>
+
+  <h1>Dove posso volare con il mio budget?</h1>
+
+  <label>Aeroporto di partenza:</label><br>
+  <input type="text" id="aeroporto" placeholder="es. Milano"><br><br>
+
+  <label>Budget (€):</label><br>
+  <input type="number" id="budget" placeholder="es. 150"><br><br>
+
+  <button onclick="calcola()">Scopri destinazioni</button>
+
+  <div id="risultati"></div>
+
+  <script>
+    function calcola() {
+      document.getElementById("risultati").innerHTML =
+        "<p>Qui appariranno le destinazioni ✈️</p>";
+    }
+  <script>
+  function calcola() {
+    const budget = document.getElementById("budget").value;
+
+    const destinazioni = [
+      { nome: "Barcellona", prezzo: 120 },
+      { nome: "Parigi", prezzo: 140 },
+      { nome: "Londra", prezzo: 160 },
+      { nome: "Berlino", prezzo: 110 }
+    ];
+
+    let risultato = "<ul>";
+
+    destinazioni.forEach(d => {
+      if (d.prezzo <= budget) {
+        risultato += `<li>${d.nome} – ${d.prezzo} €</li>`;
+      }
+    });
+
+    risultato += "</ul>";
+
+    document.getElementById("risultati").innerHTML = risultato;
+  }
+</script>
+
+
+</body>
+</html>
